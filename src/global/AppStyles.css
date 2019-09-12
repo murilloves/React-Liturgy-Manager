@@ -1,0 +1,57 @@
+body {
+    margin: 0
+}
+.flex1 { flex: 1 }
+.flex2 { flex: 2 }
+.flex3 { flex: 3 }
+.flex4 { flex: 4 }
+.flex5 { flex: 5 }
+.flex6 { flex: 6 }
+.flex7 { flex: 7 }
+.flex8 { flex: 8 }
+.flex9 { flex: 9 }
+.flex10 { flex: 10 }
+.flex11 { flex: 11 }
+.flex12 { flex: 12 }
+
+.flex-align-start { align-items: start }
+.flex-align-center { align-items: center }
+.flex-align-end { align-items: end }
+
+.flex-justify-center { justify-content: center }
+.flex-justify-end { justify-content: end }
+.flex-justify-start { justify-content: start }
+
+.flex-space-around { justify-content: space-around }
+.flex-space-between { justify-content: space-between }
+.flex-space-evenly { justify-content: space-evenly }
+
+.flex-row { flex-direction: row }
+.flex-column { flex-direction: column }
+
+.align-self-start { align-self: start }
+
+.width100 { width: 100% }
+
+.mv-5 { margin-top: 5px; margin-bottom: 5px }
+.mv-10 { margin-top: 10px; margin-bottom: 10px }
+.mv-15 { margin-top: 15px; margin-bottom: 15px }
+.mv-20 { margin-top: 20px; margin-bottom: 20px }
+.mv-25 { margin-top: 25px; margin-bottom: 25px }
+.mv-30 { margin-top: 30px; margin-bottom: 30px }
+
+.mt-0 { margin-top: 0 }
+.mt-5 { margin-top: 5px }
+.mt-10 { margin-top: 10px }
+.mt-15 { margin-top: 15px }
+.mt-20 { margin-top: 20px }
+.mt-25 { margin-top: 25px }
+.mt-30 { margin-top: 30px }
+
+.mb-0 { margin-bottom: 0 }
+.mb-5 { margin-bottom: 5px }
+.mb-10 { margin-bottom: 10px }
+.mb-15 { margin-bottom: 15px }
+.mb-20 { margin-bottom: 20px }
+.mb-25 { margin-bottom: 25px }
+.mb-30 { margin-bottom: 30px }
