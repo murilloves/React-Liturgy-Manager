@@ -1,0 +1,20 @@
+.header-div {
+  background: #333;
+  padding: 45px 70px;
+}
+
+.nav-btn {
+  color: #eee;
+  font-size: 23px;
+  font-family: sans-serif;
+  font-weight: 500;
+  margin-right: 70px;
+}
+
+.nav-btn:hover {
+  color: #fff;
+}
+
+.no-text-decoration {
+  text-decoration: none;
+}
