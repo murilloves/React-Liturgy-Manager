@@ -15,6 +15,12 @@ const Header = () => {
           <Link className="no-text-decoration" to="/cadastrar-santo-do-dia">
             <div className="nav-btn">Cadastrar Santo do Dia</div>
           </Link>
+          <Link className="no-text-decoration" to="/liturgia">
+            <div className="nav-btn">Liturgia</div>
+          </Link>
+          <Link className="no-text-decoration" to="/santo-do-dia">
+            <div className="nav-btn">Santo do Dia</div>
+          </Link>
         </Flex>
       </div>
     </>

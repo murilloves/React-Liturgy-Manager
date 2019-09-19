@@ -6,8 +6,9 @@ import './global/AppStyles.css';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import SaintsRegister from './pages/Saints';
-import LiturgyRegister from './pages/Liturgy';
+import SaintsRegister from './pages/SaintsRegister';
+import LiturgyRegister from './pages/LiturgyRegister';
+import DailyList from './pages/DailyList';
 
 // import ButtonSample from './pages/Sample/Buttons';
 
@@ -20,6 +21,8 @@ function App() {
 
           <Route path="/cadastrar-liturgia" component={LiturgyRegister} />
           <Route path="/cadastrar-santo-do-dia" component={SaintsRegister} />
+          <Route path="/liturgia" component={DailyList} />
+          <Route path="/santo-do-dia" component={DailyList} />
 
           {/* <ButtonSample /> */}
         </Flex>

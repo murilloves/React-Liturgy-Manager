@@ -4,7 +4,7 @@ import { Container } from '../../components/Container';
 import { Flex } from '../../components/Flex';
 import { H2, H5 } from '../../components/Text';
 import { InputText } from '../../components/Inputs';
-import { ButtonSecondary, ButtonPrimary } from '../../components/Button';
+import { ButtonSecondary, ButtonPrimary } from '../../components/Buttons';
 
 // FROALA
 import FroalaEditor from 'react-froala-wysiwyg';
