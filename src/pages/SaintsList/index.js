@@ -2,15 +2,37 @@ import React from 'react'
 
 import { Flex } from '../../components/Flex'
 import { InputText } from '../../components/Inputs'
-import { ButtonPrimary, ButtonSecondary } from '../../components/Buttons'
+import { ButtonSecondary } from '../../components/Buttons'
 import { H2, H3, H5 } from '../../components/Text'
+
+import SaintsService from '../../services/Saints'
 
 class SaintsList extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      dia: new Date()
+      dia: new Date(),
+      str: ''
     }
+    this.handleChangeDate = this.handleChangeDate.bind(this)
+  }
+
+  handleChangeDate = (event) => {
+    let date = new Date(event.target.value)
+    date.setDate(date.getDate() + 1)
+    this.setState({
+      ...this.state,
+      dia: date
+    })
+  }
+
+  componentDidMount () {
+    this.getSaints();
+  }
+
+  getSaints = async (date) => {
+    const abc = await SaintsService.tryGet();
+    this.setState({...this.state, str: abc.data.title});
   }
 
   setDay = (prop) => {
@@ -19,30 +41,41 @@ class SaintsList extends React.Component {
     this.setState({dia: dateBuffer})
   }
 
+  getFormatedDate = () => {
+    let date = this.state.dia;
+
+    let day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()
+    let month = date.getMonth() + 1 > 9 ? date.getMonth() + 1 : `0${date.getMonth() + 1}`
+    let year = date.getFullYear()
+
+    return `${day} / ${month} / ${year}`
+  }
+
   render() {
     return (
       <>
         <Flex className="flex-justify-center mb-25">
           <H2>
             Santo do dia &nbsp;
-            {this.state.dia.getDate()} / {this.state.dia.getMonth()+1} / {this.state.dia.getFullYear()}
+            { this.getFormatedDate() }
           </H2>
         </Flex>
         <Flex className="mb-30 flex-align-center">
           <Flex className="flex2">
             <H5>Escolher dia:</H5>
           </Flex>
-          <InputText className="flex2" type="date" />
-          <Flex className="flex8">
-            <ButtonPrimary className="ml-30">MUDASSE</ButtonPrimary>
-          </Flex>
+          <InputText
+            className="flex2" type="date"
+            onChange={this.handleChangeDate}
+          />
+          <Flex className="flex8"></Flex>
         </Flex>
         <Flex>
           <Flex className="flex1">
             <ButtonSecondary onClick={() => this.setDay(-1)}>Anterior</ButtonSecondary>
           </Flex>
           <Flex className="flex flex8 flex flex-justify-center">
-            <H3>* Ainda não cadastrado *</H3>
+            <H3>* Ainda não cadastrada *</H3>
           </Flex>
           <Flex className="flex1">
             <ButtonSecondary onClick={() => this.setDay(+1)}>Próximo</ButtonSecondary>
