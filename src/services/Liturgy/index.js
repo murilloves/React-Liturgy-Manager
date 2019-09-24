@@ -1,18 +1,34 @@
 import axios from 'axios'
-// import URL from '../../constants'
+import { BASE_URL } from '../../constants'
 
 const LiturgyService = {
   getLiturgyFromDate : (date) => {
-    return new Date(date)
+    const ddMMyyyy = LiturgyService.getRawFormatDate(date);
+    const res = axios.get(`${BASE_URL}liturgy/date?date=${ddMMyyyy}`)
+    return res
   },
 
-  setLiturgy : (liturgy) => {
-    return new Date('11/14/1990')
+  setLiturgy : (obj) => {
+    obj.date = LiturgyService.getRawFormatDate(obj.date);
+    const res = axios.post(
+      `${BASE_URL}liturgy/register`,
+      obj
+    )
+
+    return res
   },
 
   tryGet : () => {
-    const response = axios.get('https://jsonplaceholder.typicode.com/todos/1')
+    const response = axios.get(`${BASE_URL}liturgy/test`)
     return response;
+  },
+
+  getRawFormatDate : (date) => {
+    let day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()
+    let month = date.getMonth() + 1 > 9 ? date.getMonth() + 1 : `0${date.getMonth() + 1}`
+    let year = date.getFullYear()
+
+    return `${month}-${day}-${year}`
   }
 }
 

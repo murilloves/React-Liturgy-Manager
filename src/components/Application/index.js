@@ -4,6 +4,6 @@ export const Application = styled.div`
   background: #f2f2f2;
   margin: 0;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   position: absolute;
 `

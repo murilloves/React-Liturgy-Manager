@@ -41,6 +41,13 @@ body {
 .mv-25 { margin-top: 25px; margin-bottom: 25px }
 .mv-30 { margin-top: 30px; margin-bottom: 30px }
 
+.mh-5 { margin-right: 5px; margin-left: 5px }
+.mh-10 { margin-right: 10px; margin-left: 10px }
+.mh-15 { margin-right: 15px; margin-left: 15px }
+.mh-20 { margin-right: 20px; margin-left: 20px }
+.mh-25 { margin-right: 25px; margin-left: 25px }
+.mh-30 { margin-right: 30px; margin-left: 30px }
+
 .mt-0 { margin-top: 0 }
 .mt-5 { margin-top: 5px }
 .mt-10 { margin-top: 10px }
@@ -77,3 +84,9 @@ body {
 .fr-box.fr-basic {
   width: 100%;
 }
+
+.sans { font-family: sans-serif }
+.font14 { font-size: 14px }
+.bg-white { background: #fff }
+.br-5 { border-radius: 5px }
+.pd-30 { padding: 30px }

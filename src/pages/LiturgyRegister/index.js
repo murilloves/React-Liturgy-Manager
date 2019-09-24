@@ -13,30 +13,82 @@ import 'froala-editor/js/froala_editor.pkgd.min.js';
 // Require Editor CSS files.
 import 'froala-editor/css/froala_style.min.css';
 import 'froala-editor/css/froala_editor.pkgd.min.css';
+import LiturgyService from '../../services/Liturgy';
 
 // Register Liturgy by day
-const LiturgyRegister = () => {
-  return (
-    <Container>
-      <Flex className="flex-align-center flex-justify-center">
-        <H2 className="mt-0">Liturgia</H2>
-      </Flex>
-      <Flex className="mv-10 flex-align-center">
-        <H5 className="flex1">Data</H5>
-        <InputText className="flex5" placeholder="__/__/____" type="date"></InputText>
-      </Flex>
-      <Flex className="mv-10 flex-align-center">
-        <H5 className="flex1 align-self-start mv-10">Liturgia do Dia</H5>
-        <Flex className="flex5">
-          <FroalaEditor tag='textarea'/>
+class LiturgyRegister extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      date: new Date(),
+      text: ''
+    }
+    this.handleChangeDate = this.handleChangeDate.bind(this)
+    this.handleChangeInputText = this.handleChangeInputText.bind(this)
+  }
+
+  handleChangeDate = (event) => {
+    let date = new Date(event.target.value)
+    date.setDate(date.getDate() + 1)
+
+    this.setState({
+      ...this.state,
+      date
+    })
+
+    console.log(this.state);
+  }
+
+  handleChangeInputText = (text) => {
+    this.setState({
+      ...this.state,
+      text
+    })
+
+    console.log(this.state);
+  }
+
+
+  setLiturgy = async () => {
+    const res = await LiturgyService.setLiturgy(this.state)
+
+    if (res.status === 200) {
+      this.refreshPage();
+    }
+    console.log(res)
+  }
+
+  refreshPage = () => { 
+    window.location.reload(); 
+  }
+
+
+  render() {
+    return (
+      <Container>
+        <Flex className="flex-align-center flex-justify-center">
+          <H2 className="mt-0">Liturgia</H2>
         </Flex>
-      </Flex>
-      <Flex className="flex-space-between mt-30">
-        <ButtonSecondary>Voltar</ButtonSecondary>
-        <ButtonPrimary>Salvar</ButtonPrimary>
-      </Flex>
-    </Container>
-  );
+        <Flex className="mv-10 flex-align-center">
+          <H5 className="flex1">Data</H5>
+          <InputText
+            className="flex5" placeholder="__/__/____" type="date"
+            onChange={this.handleChangeDate}>
+          </InputText>
+        </Flex>
+        <Flex className="mv-10 flex-align-center">
+          <H5 className="flex1 align-self-start mv-10">Liturgia do Dia</H5>
+          <Flex className="flex5">
+            <FroalaEditor onModelChange={this.handleChangeInputText} tag='textarea'/>
+          </Flex>
+        </Flex>
+        <Flex className="flex-space-between mt-30">
+          <ButtonSecondary>Voltar</ButtonSecondary>
+          <ButtonPrimary onClick={() => this.setLiturgy()}>Salvar</ButtonPrimary>
+        </Flex>
+      </Container>
+    )
+  }
 }
 
 export default LiturgyRegister;
