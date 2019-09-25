@@ -3,7 +3,7 @@ import React from 'react'
 import { Flex } from '../../components/Flex'
 import { InputText } from '../../components/Inputs'
 import { ButtonSecondary } from '../../components/Buttons'
-import { H2, H3, H5 } from '../../components/Text'
+import { H2, H3 } from '../../components/Text'
 
 import LiturgyService from '../../services/Liturgy'
 
@@ -83,22 +83,21 @@ class LiturgyList extends React.Component {
             { this.getFormatedDate() }
           </H2>
         </Flex>
-        <Flex className="mb-30 flex-align-center">
+        <Flex className="mh-30 mb-30">
           <Flex className="flex2">
-            <H5>Escolher dia:</H5>
+            <ButtonSecondary onClick={() => this.setDay(-1)}>&lt;&nbsp; Dia Anterior</ButtonSecondary>
           </Flex>
-          <InputText
-            className="flex2" type="date"
-            value={this.getRawFormatDate()}
-            onChange={this.handleChangeDate}
-          />
-          <Flex className="flex8"></Flex>
+          <Flex className="flex1 flex-align-center">
+            <InputText type="date"
+              value={this.getRawFormatDate()}
+              onChange={this.handleChangeDate}
+            />
+          </Flex>
+          <Flex className="flex2 flex-justify-end">
+            <ButtonSecondary onClick={() => this.setDay(+1)}>Próximo Dia &nbsp;&gt;</ButtonSecondary>
+          </Flex>
         </Flex>
-        <Flex>
-          <Flex className="flex1">
-            <ButtonSecondary onClick={() => this.setDay(-1)}>Anterior</ButtonSecondary>
-          </Flex>
-          { !this.state.text
+        { !this.state.text
             ?
               (
                 <Flex className="flex8 flex-justify-center">
@@ -119,10 +118,6 @@ class LiturgyList extends React.Component {
                 </Flex>
               )
           }
-          <Flex className="flex1">
-            <ButtonSecondary onClick={() => this.setDay(+1)}>Próximo</ButtonSecondary>
-          </Flex>
-        </Flex>
       </>
     )
   }

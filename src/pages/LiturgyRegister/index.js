@@ -6,6 +6,8 @@ import { H2, H5 } from '../../components/Text';
 import { InputText } from '../../components/Inputs';
 import { ButtonPrimary, ButtonSecondary } from '../../components/Buttons';
 
+import LiturgyService from '../../services/Liturgy';
+
 // FROALA
 import FroalaEditor from 'react-froala-wysiwyg';
 // Require Editor JS files.
@@ -13,7 +15,6 @@ import 'froala-editor/js/froala_editor.pkgd.min.js';
 // Require Editor CSS files.
 import 'froala-editor/css/froala_style.min.css';
 import 'froala-editor/css/froala_editor.pkgd.min.css';
-import LiturgyService from '../../services/Liturgy';
 
 // Register Liturgy by day
 class LiturgyRegister extends React.Component {
@@ -67,7 +68,7 @@ class LiturgyRegister extends React.Component {
     return (
       <Container>
         <Flex className="flex-align-center flex-justify-center">
-          <H2 className="mt-0">Liturgia</H2>
+          <H2 className="mt-0">Cadastrar Liturgia</H2>
         </Flex>
         <Flex className="mv-10 flex-align-center">
           <H5 className="flex1">Data</H5>
