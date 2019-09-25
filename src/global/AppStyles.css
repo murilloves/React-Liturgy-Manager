@@ -90,3 +90,9 @@ body {
 .bg-white { background: #fff }
 .br-5 { border-radius: 5px }
 .pd-30 { padding: 30px }
+
+/* FROALA MAGIC */
+.fr-wrapper.show-placeholder :nth-child(1) {
+  display: none;
+}
+

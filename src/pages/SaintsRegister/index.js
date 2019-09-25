@@ -93,9 +93,9 @@ class SaintsRegister extends React.Component {
         </Flex>
         <Flex className="mv-10 flex-align-center">
           <H5 className="flex1 align-self-start mv-10">Mensagem</H5>
-          <Flex className="flex5">
+          <div className="flex5">
             <FroalaEditor onModelChange={this.handleChangeInputText} tag='textarea'/>
-          </Flex>
+          </div>
         </Flex>
         <Flex className="flex-space-between mt-30">
           <ButtonSecondary>Voltar</ButtonSecondary>
