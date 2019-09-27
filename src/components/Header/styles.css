@@ -11,7 +11,7 @@
   margin-right: 70px;
 }
 
-.input-dark {
+input.input-dark {
   background: #333;
   color: #ffffff;
   font-size: 20px;
