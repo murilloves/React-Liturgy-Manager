@@ -18,6 +18,13 @@ const SaintsService = {
     return res
   },
 
+  deleteSaints : (_id) => {
+    const res = axios.delete(
+      `${BASE_URL}saints/${_id}`,
+    )
+    return res
+  },
+
   tryGet : () => {
     const response = axios.get(`${BASE_URL}saints/test`)
     return response;
