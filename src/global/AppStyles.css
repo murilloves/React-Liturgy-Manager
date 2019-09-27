@@ -93,6 +93,6 @@ body {
 
 /* FROALA MAGIC */
 .fr-wrapper.show-placeholder :nth-child(1) {
-  display: none;
+  /* display: none; */
 }
 

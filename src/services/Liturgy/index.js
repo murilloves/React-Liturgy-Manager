@@ -14,7 +14,13 @@ const LiturgyService = {
       `${BASE_URL}liturgy/register`,
       obj
     )
+    return res
+  },
 
+  deleteLiturgy : (_id) => {
+    const res = axios.delete(
+      `${BASE_URL}liturgy/${_id}`,
+    )
     return res
   },
 
@@ -24,11 +30,19 @@ const LiturgyService = {
   },
 
   getRawFormatDate : (date) => {
+    date = new Date(date)
+
     let day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()
     let month = date.getMonth() + 1 > 9 ? date.getMonth() + 1 : `0${date.getMonth() + 1}`
     let year = date.getFullYear()
 
     return `${month}-${day}-${year}`
+  },
+
+  getInputFormatDate : (date) => {
+    date = new Date(new Date().setHours(0));
+
+    return date.toISOString().substring(0,10)
   }
 }
 
