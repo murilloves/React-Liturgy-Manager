@@ -57,7 +57,7 @@ class DailyList extends React.Component {
               <Flex className="flex2">
                 <ButtonSecondary size="16" onClick={() => this.setDay(-1)}>&lt;&nbsp; Dia Anterior</ButtonSecondary>
               </Flex>
-              <Flex className="flex1 flex-align-center">
+              <Flex className="flex1 flex-justify-center flex-align-center">
                 <InputText type="date"
                   className="input-dark"
                   value={this.getRawFormatDate()}
