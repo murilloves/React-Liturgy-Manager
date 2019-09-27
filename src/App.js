@@ -17,12 +17,12 @@ function App() {
     <Application>
       <Router>
         <Flex className="flex-column flex-space-between">
+
           <Header />
 
           <Route path="/cadastrar-liturgia" component={LiturgyRegister} />
           <Route path="/cadastrar-santo-do-dia" component={SaintsRegister} />
-          <Route path="/liturgia" component={DailyList} />
-          <Route path="/santo-do-dia" component={DailyList} />
+          <Route path="/listagem-dia" component={DailyList} />
 
           {/* <ButtonSample /> */}
         </Flex>

@@ -11,6 +11,15 @@
   margin-right: 70px;
 }
 
+.input-dark {
+  background: #333;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  padding-left: 70px;
+  width: 240px;
+}
+
 .nav-btn:hover {
   color: #fff;
 }
