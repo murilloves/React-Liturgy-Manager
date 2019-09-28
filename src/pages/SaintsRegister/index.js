@@ -27,7 +27,8 @@ class SaintsRegister extends React.Component {
     this.fetchDate(new Date())
 
     this.state = {
-      date: today,
+      inputDate: today,
+      date: new Date(),
       text: '',
       name: '',
       canDelete: false
@@ -118,7 +119,7 @@ class SaintsRegister extends React.Component {
           <H5 className="flex1">Dia da comemoração</H5>
           <InputText
             className="flex5" placeholder="__/__/____" type="date"
-            defaultValue={this.state.date}
+            defaultValue={this.state.inputDate}
             onChange={this.handleChangeDate}>
           </InputText>
         </Flex>
