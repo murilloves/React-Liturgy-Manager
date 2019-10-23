@@ -12,9 +12,13 @@ import LiturgyService from '../../services/Liturgy';
 import FroalaEditor from 'react-froala-wysiwyg';
 // Require Editor JS files.
 import 'froala-editor/js/froala_editor.pkgd.min.js';
+import 'froala-editor/js/plugins/colors.min.js';
+import 'froala-editor/js/plugins/font_size.min.js';
+import 'froala-editor/js/plugins/font_family.min.js';
 // Require Editor CSS files.
 import 'froala-editor/css/froala_style.min.css';
 import 'froala-editor/css/froala_editor.pkgd.min.css';
+import 'froala-editor/css/plugins/colors.min.css';
 
 // Register Liturgy by day
 class LiturgyRegister extends React.Component {
@@ -119,7 +123,9 @@ class LiturgyRegister extends React.Component {
             }
           </div>
           <div className="flex5">
-            <FroalaEditor model={this.state.text} onModelChange={this.handleChangeInputText} tag='textarea'/>
+            <FroalaEditor config={{
+              'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'clearFormatting']
+            }} model={this.state.text} onModelChange={this.handleChangeInputText} tag='textarea'/>
           </div>
         </Flex>
         <Flex className="flex-space-between mt-30">

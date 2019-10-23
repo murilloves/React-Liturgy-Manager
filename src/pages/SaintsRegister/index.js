@@ -13,9 +13,13 @@ import LiturgyService from '../../services/Liturgy';
 import FroalaEditor from 'react-froala-wysiwyg';
 // Require Editor JS files.
 import 'froala-editor/js/froala_editor.pkgd.min.js';
+import 'froala-editor/js/plugins/colors.min.js';
+import 'froala-editor/js/plugins/font_size.min.js';
+import 'froala-editor/js/plugins/font_family.min.js';
 // Require Editor CSS files.
 import 'froala-editor/css/froala_style.min.css';
 import 'froala-editor/css/froala_editor.pkgd.min.css';
+import 'froala-editor/css/plugins/colors.min.css';
 
 // Saint of the day
 class SaintsRegister extends React.Component {
