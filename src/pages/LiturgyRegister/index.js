@@ -8,17 +8,8 @@ import { ButtonPrimary, ButtonSecondary, ButtonDanger } from '../../components/B
 
 import LiturgyService from '../../services/Liturgy';
 
-// FROALA
-import FroalaEditor from 'react-froala-wysiwyg';
-// Require Editor JS files.
-import 'froala-editor/js/froala_editor.pkgd.min.js';
-import 'froala-editor/js/plugins/colors.min.js';
-import 'froala-editor/js/plugins/font_size.min.js';
-import 'froala-editor/js/plugins/font_family.min.js';
-// Require Editor CSS files.
-import 'froala-editor/css/froala_style.min.css';
-import 'froala-editor/css/froala_editor.pkgd.min.css';
-import 'froala-editor/css/plugins/colors.min.css';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 // Register Liturgy by day
 class LiturgyRegister extends React.Component {
@@ -99,6 +90,20 @@ class LiturgyRegister extends React.Component {
     window.location.reload(); 
   }
 
+  modules = {
+    toolbar: [
+      [{ 'header': [1, 2, false] }],
+      ['bold', 'italic', 'underline','strike', 'blockquote'],
+      [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+      ['link', 'image'],
+      ['clean'],
+      [{'color': [
+        '#ff4444', '#ffbb33', '#00C851', '#33b5e5', '#5c6bc0', '#aa66cc', '#ec407a',
+        '#cc0000', '#FF8800', '#007E33', '#0099CC', '#1a237e', '#9933CC', '#d81b60',
+        '#cccccc', '#aaaaaa', '#777777', '#555555', '#333333', '#212121', '#000000'
+      ]}],
+    ],
+  };
 
   render() {
     return (
@@ -123,9 +128,11 @@ class LiturgyRegister extends React.Component {
             }
           </div>
           <div className="flex5">
-            <FroalaEditor config={{
-              'buttons': ['bold', 'italic', 'underline', 'strikeThrough', 'fontFamily', 'fontSize', 'textColor', 'backgroundColor', 'clearFormatting']
-            }} model={this.state.text} onModelChange={this.handleChangeInputText} tag='textarea'/>
+            <ReactQuill
+              value={this.state.text}
+              modules={this.modules}
+              onChange={this.handleChangeInputText}
+            />
           </div>
         </Flex>
         <Flex className="flex-space-between mt-30">

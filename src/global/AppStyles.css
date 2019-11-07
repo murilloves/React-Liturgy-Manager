@@ -103,3 +103,21 @@ body {
 .fr-wrapper div:nth-child(1) a {
   display: none !important;
 }
+
+.quill {
+  margin: 2px 0 0 -4px;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.quill .ql-toolbar.ql-snow {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 4px 4px 0 0;
+}
+
+.quill .ql-container.ql-snow {
+  border: none;
+  border-radius: 0 0 4px 4px;
+  min-height: 120px;
+}
